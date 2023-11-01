@@ -1,0 +1,242 @@
+<html>
+<head>
+<title>Noam Elata</title>
+<meta name="google-site-verification" content="QjLkUt7GRHvXWyLqRw7NZ7MW0-3BEg5TfF4bl-kxZB0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap" rel="stylesheet"> 
+<style type="text/css">
+.content {
+    width:900px;
+    text-align: left;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+}
+h1 {
+    font-weight: 400;
+}
+.banner {
+    width:900px;
+    padding:0px; margin:0px;
+    position: absolute; top:4px; left:0px;
+    z-index: 0;
+}
+.banner td {
+    padding:0px; margin:0px;
+}
+.banner_img {
+    width:132px; height: 132px;
+    margin-right:9px;
+    margin-left:9px;
+}
+.overlay {
+    position: absolute; top:0px; left:0px;
+    z-index: 1;
+    text-align:center;
+    width: 900px;
+}
+.grad-l {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 255));
+    display:inline-block;
+    height:140px;
+    width:70px;
+}
+.grad-r {
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 255));
+    display:inline-block;
+    height:140px;
+    width:70px;
+}
+#vector-table {
+    text-align:center;
+    margin-left:5px;
+    margin-right:5px;
+    width:21px;
+    transition: width 2s;
+}
+#vector-table tr, #vector-table td, #vector-table tbody {
+    width:100%;
+}
+#vector-table td, .vt-like td {
+    border: 1px solid gray;
+    border-bottom: none;
+}
+#vector-table tr:last-child > td, .vt-like tr:last-child > td {
+    border: 1px solid gray;
+    border-bottom: 1px solid gray !important;
+}
+.menu-item {
+    padding-left: 10px;
+    padding-right: 10px;
+    display:none;
+}
+.menu-item a {
+    color:black;
+    text-decoration:none;
+}
+.menu-item a:hover {
+    text-decoration:underline;
+}
+.encdec {
+    background-color:white;
+    display:inline-block;
+}
+td.red {
+    background:rgb(255,0,0);
+}
+td.blue {
+    background:rgb(40,40,255);
+}
+td.green {
+    background:rgb(0,150,0);
+}
+td.orange {
+     background:rgb(255,165,0);
+}
+td.red:hover {
+    background:rgb(255,50,50);
+}
+td.blue:hover {
+    background:rgb(50,50,255);
+}
+td.green:hover {
+    background:rgb(50,150,50);
+}
+td.orange:hover {
+     background:rgb(255,205,40);
+}
+.lnk:link, .lnk:visited {
+    color:black;
+}
+.lnk:hover {
+    color:gray;
+}
+.article {
+    height: 100px;
+}
+.article * {
+    font-weight: 200;
+}
+.article b {
+    font-weight: 400 !important;
+}
+.article-img {
+    width:100px;
+    height:100px;
+    vertical-align:middle;
+}
+@media only screen and (max-width: 900px) {
+    #banner-div { display:none !important; }
+    #small-div { display:block !important; }
+    .content { width:100% !important; }
+    .article { margin-bottom:80px; }
+}
+</style>
+<script type="text/javascript">
+var shown = false;
+function toggle_text() {
+    var items = document.getElementsByClassName("menu-item");
+    for (var i =0; i < items.length; i++) {
+        if (shown) {
+            items[i].style.display = "none";
+        }
+        else {
+            items[i].style.display = "inline";
+        }
+    }
+    shown = !shown;
+}
+function toggle_menu() {
+    if (shown) {
+        document.getElementById("vector-table").style.width="21px";
+        setTimeout(toggle_text, 100);
+    }
+    else {
+        document.getElementById("vector-table").style.width="161px";
+        setTimeout(toggle_text, 1000);
+    }
+}
+function show_menu() {
+    if(!shown) {
+        document.getElementById("vector-table").style.width="161px";
+        setTimeout(toggle_text, 1000);
+    }
+}
+</script>
+</head>
+<body dir="ltr">
+<center><div class="content">
+    <center>
+        <h1>Noam Elata</h1>
+        Ph.D. Student at Technion - Israel Institute of Technology.<br />
+        Interested in diffusion models, computer vision and deep learning. <br />
+        <a class="lnk" href="https://www.linkedin.com/in/noamelata">LinkedIn</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a class="lnk" href="https://github.com/noamelata">GitHub</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a class="lnk" href="https://twitter.com/noamelata">Twitter</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a class="lnk" href="https://scholar.google.com/citations?user=88l-2DcAAAAJ">Google Scholar</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a class="lnk" href="https://www.semanticscholar.org/author/Noam-Elata/2218362804">Semantic Scholar</a>
+    </center>
+    <br /><br />
+    <div style="position:relative;height:140px;" id="banner-div">
+        <center><img src="profile/Noam.jpg" class="banner_img" /></center>
+    </div>
+    <div style="height:100px;display:none;text-align:center;" id="small-div"><center><table cellspacing="0"><tr>
+        <td><img src="profile/noisy30.png" style="width:100px;height:100px;" /></td>
+        <td><img src="enc.png" style="height:100px;width:40px;"/></td>
+        <td><table class="vt-like" cellspacing="0">
+            <tr><td class="red">&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+            <tr><td class="blue">&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+            <tr><td class="green">&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+            <tr><td class="orange">&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+        </table></td>
+        <td><img src="dec.png" style="height:100px;width:40px;"/></td>
+        <td><img src="profile/noisy0.png" style="width:100px;height:100px;" /></td>
+    </tr></table></center></div>
+    <br /><br />
+    <div id="about" style="border-top:1px solid gray;">
+    <h2>About Me</h2>
+    <p>
+	I am a Ph.D. Student in the Electric and Computer Engineering faculty at the <a class="lnk" href="https://www.technion.ac.il/">Technion</a>, researching computer vision and machine learning under the supervision of <a class="lnk" href="https://elad.cs.technion.ac.il/">Prof. Michael Elad</a> and <a class="lnk" href="https://tomer.net.technion.ac.il/">Prof. Tomer Michael</a>. I am interested in generative models and theoretical deep learning, focusing most of my recent work on diffusion models.
+    </p><p>
+    Prior to my Ph.D. studies, I recieved my B.Sc., summa cum laude, in computer engineering from Technion. During my studies, I worked as a computer vision engineer at <a class="lnk" href="https://www.mobileye.com/">Mobileye</a>.
+    </p>
+    </div>
+    <br />
+    <div id="pub" style="border-top:1px solid gray;">
+    <h2>Publications</h2>
+    <h3>2024</h3>
+	    <div class="article"><table><tr>
+        <td valign="middle"><img src="figures/nested.png" class="article-img" /></td>
+        <td valign="middle"><b>Noam Elata</b>, Bahjat Kawar, Tomer Michaeli, Michael Elad<br />
+        <a class="lnk" href="https://arxiv.org/abs/2305.19066">Nested Diffusion Processes for Anytime Image Generation</a><br />
+        <b>WACV 2024</b>, in <i>The IEEE/CVF Winter Conference on Applications of Computer Vision</i>.<br />
+        <b>[</b><a class="lnk" href="https://github.com/noamelata/NestedDiffusion">code</a><b>]</b></td>
+    </tr></table></div> <br />
+    <h3>2023</h3>
+    <div class="article"><table><tr>
+        <td valign="middle"><img src="figures/gsure.png" class="article-img" /></td>
+        <td valign="middle">Bahjat Kawar*, <b>Noam Elata</b>*, Tomer Michaeli, Michael Elad<br />
+        <a class="lnk" href="https://arxiv.org/abs/2305.13128">GSURE-Based Diffusion Model Training with Corrupted Data</a><br />
+        <b>ICMLW 2023</b>, in <i>ICML Workshop on Structured Probabilistic Inference &amp; Generative Modeling</i>.<br />
+        <b>[</b><a class="lnk" href="https://github.com/bahjat-kawar/gsure-diffusion">code</a><b>]</b></td>
+    </tr></table></div> <br />
+    <br />
+    <div id="awards" style="border-top:1px solid gray;">
+    <h2>Awards</h2>
+    I am a recipient of the following awards:
+    <ul>
+        <li>Meyer Fellows prize 2022</li>
+        <li>EMET Excellence Program 2020-2022</li>
+        <li>Alfred and Anna Grey Excellence Scholarship 2021</li>
+        <li>Apple Excellence Award 2021</li>
+        <li>Technion Alumni Scholarship 2020</li>
+    </ul>
+    </div>
+    <br />
+    <div id="teach" style="border-top:1px solid gray;">
+    <h2>Teaching</h2>
+    I have taught the following courses as a TA:
+    <ul>
+        <li>Generative AI - Diffusion Models (CS236610) &ndash; Winter 2023-2024</li>
+        <li>Deep Learning (ECE046211) &ndash; Spring 2023</li>
+    </ul>
+    </div>
+</div></center>
+</body>
+</html>
