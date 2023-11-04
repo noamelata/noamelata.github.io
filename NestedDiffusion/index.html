@@ -1,0 +1,273 @@
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+<script
+	type="module"
+	src="https://gradio.s3-us-west-2.amazonaws.com/3.33.1/gradio.js"
+></script>
+
+<!doctype html>
+<html>
+<head>
+	<title>Nested Diffusion</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  	<link href="style.css" rel="stylesheet" type="text/css">
+	<meta property="og:image" content="resources/teaser.png"/> 
+	<meta property="og:title" content="Academic Webpage Template" />
+	<meta property="og:description" content="a webpage template for academic projects" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="https://kit.fontawesome.com/ad96f96272.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	
+	<!-- navigation bar on the top, nav bar stick to the top -->
+	<nav id="navbar_top" class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary" style="margin-bottom: 15px;">
+		<div class="container">
+				<a class="navbar-brand" href="">Nested Diffusion</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="main_nav">
+			<ul class="navbar-nav ms-auto">
+				<li class="nav-item"><a class="nav-link" href="#generation">Generation</a></li>
+				<li class="nav-item"><a class="nav-link" href="#try">Try it!</a></li>
+				<li class="nav-item"><a class="nav-link" href="#interactive">Interactive</a></li>
+				<li class="nav-item"><a class="nav-link" href="#paper">Paper</a></li>
+			</ul>
+			</div> 
+		</div> 
+		</nav>
+	<!-- end nav bar -->
+
+	<div class="container-xl"> 
+		<!-- top button -->
+		<button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
+			<i class="fas fa-arrow-up"></i>
+		</button>
+		<!-- end top button -->
+
+		<!-- top - author names, affiliation and links -->
+		<center>
+			<h1>Nested Diffusion Processes for Anytime Image Generation</h1>
+			<h4>WACV 2024</h4>
+			<div class="container">
+				<div class="row justify-content-md-center">
+					<div class="col-md-auto">
+						<span style="font-size:24px"><a href="https://noamelata.github.io/" target="_blank" rel="noopener noreferrer">Noam Elata</a></span>
+					</div>
+					<div class="col-md-auto">
+						<span style="font-size:24px"><a href="https://bahjat-kawar.github.io/" target="_blank" rel="noopener noreferrer">Bahjat Kawar</a></span>
+					</div>
+					<div class="col-md-auto">
+						<span style="font-size:24px"><a href="https://tomer.net.technion.ac.il/" target="_blank" rel="noopener noreferrer">Tomer Michaeli</a></span>
+					</div>
+					<div class="col-md-auto">
+						<span style="font-size:24px"><a href="https://elad.cs.technion.ac.il/author/mikielad/b" target="_blank" rel="noopener noreferrer">Michael Elad</a></span>
+					</div>
+				</div>
+			</div>
+
+			<p class="text-center affilation" style="font-size: 20pt;">Technion - Israel Institute of Technology<p>
+
+			<div class="container">
+				<div class="row justify-content-md-center">
+					<div class="col-md-auto">
+						<span style="font-size:24px"><a href='resources/WACV_2024_Nested_Diffusion.pdf' target="_blank" rel="noopener noreferrer">[<i class="fas fa-file-pdf"></i> Paper]</a></span>
+					</div>
+					<div class="col-md-auto">
+						<span style="font-size:24px"><a href="https://github.com/noamelata/NestedDiffusion" target="_blank" rel="noopener noreferrer">[<i class="fab fa-github"></i> Code]</a></span>
+					</div>
+				</div>
+			</div>
+		</center>
+		<!-- end top -->
+
+		<!-- abstract and teaser image-->
+		<center>
+			<div class="container" style="margin-top: 20px;">
+				<div class="row justify-content-md-center">
+					<img alt="" id="teaser" src="./resources/diagram.png" style="max-width: 500px;"/>
+				</div>
+			</div>
+		<h1 style="margin-top: 10px;">Abstract</h1>
+		</center>
+		<p align="justify">
+			Diffusion models are the current state-of-the-art in image generation, synthesizing high-quality images by breaking down the generation process into many fine-grained denoising steps. Despite their good performance, diffusion models are computationally expensive, requiring many neural function evaluations (NFEs). In this work, we propose an anytime diffusion-based method that can generate viable images when stopped at arbitrary times before completion. Using existing pretrained diffusion models, we show that the generation scheme can be recomposed as two nested diffusion processes, enabling fast iterative refinement of a generated image. In experiments on ImageNet and Stable Diffusion-based text-to-image generation, we show, both qualitatively and quantitatively, that our method's intermediate generation quality greatly exceeds that of the original diffusion model, while the final generation result remains comparable. We illustrate the applicability of Nested Diffusion in several settings, including for solving inverse problems, and for rapid text-based content creation by allowing user intervention throughout the sampling process.
+		</p>
+		<!-- end abstract and teaser image-->
+
+		<!-- video of a talk about your paper (youtube embedding) -->
+		<!-- <center><h1>Talk</h1></center>
+		<p align="center">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/ly36kn0ug4k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>		</p> -->
+
+		<!-- Generation -->
+		<hr id="generation">
+		<center><h1 style="margin-top: 65px;">Anytime Image Generation</h1></center>
+		<p>Nested Diffusion is an anytime algorithm for using pretrained Diffusion Models
+			<br>
+			During generation, Nested Diffusion will yield sample images which converge to the final result.
+		</p>
+		<center>
+			<table class="table smallpad" width="1" style="max-width: 1000px;">
+				<tbody>
+				<tr>
+					<td ><img id="generation_gif" class="round" width="100%" src="./resources/generation.gif" style="max-width: 2000px;"/></td>
+				</tr>
+			</table>
+		</center>
+		<p>
+			Images created with Nested Diffusion will improve in quality untill the generation process terminates, with the final samples comparable in quality to a vanilla diffusion model. The user also has the choice to stop the process at any point if the current image is satisfactory.
+		</br>
+			Quantitative comparisons can be found in the <a href='resources/WACV_2024_Nested_Diffusion.pdf' target="_blank" rel="noopener noreferrer">paper</a>.
+		</p>
+
+		
+		
+		<!-- end Generation -->
+
+		<!-- Generation -->
+		<hr id="try">
+		<center><h1 style="margin-top: 65px;">Try It Yourself!</h1></center>
+		<p>Nested Diffusion is available with Stable Diffusion online thanks to the generous help of HuggingFace.
+			<br>
+			If app requires restarting, please wait a few minutes while the model is downloaded.
+		</p>
+		<center>
+			<!-- <iframe
+			src="https://noamelata-nested-diffusion.hf.space"
+			frameborder="0"
+			width="1100"
+			height="900"
+			></iframe> -->
+			
+			<gradio-app src="https://noamelata-nested-diffusion.hf.space"></gradio-app>
+		</center>	
+		
+		<!-- end Generation -->
+		
+
+		<!-- Interactive -->
+		<hr id="interactive">
+		<center><h1 style="margin-top: 65px;">Interactive generation</h1></center>
+		<p>
+			Nested Diffusion's back-and-forth algorithm inherently enables interacting with the diffusion process.
+		</br>
+			In our paper, we propose as an example pruning of unwanted generation trajectories, as well as intervation in the desired guidance during generation.
+		</p>
+		<center>
+			<table class="table smallpad" width="1" style="max-width: 1000px;">
+				<tbody>
+				<tr>
+					<td ><img id="interative_gif" class="round" width="100%" src="./resources/interactive.gif" style="max-width: 2000px;"/></td>
+				</tr>
+			</table>
+		</center>
+		<!-- Interactive -->
+		
+
+		<!-- Paper -->
+		<hr id="paper">
+		<center><h1 style="margin-top: 65px;">Paper</h1></center>
+		<table align=center class="table"  style="max-width: 750px">
+			<tr>
+				<td>
+					<a href='resources/WACV_2024_Nested_Diffusion.pdf' target="_blank" rel="noopener noreferrer">
+						<img alt="" class="layered-paper-big" style="height:100%; max-height: 175px;" src="./resources/paper.png"/>
+					</a></td>
+				<td><span style="font-size:14pt"><b>Nested Diffusion Processes for Anytime Image Generation</b><br>
+					Noam Elata, Bahjat Kawar, Tomer Michaeli, Michael Elad</span>
+					<br>
+					<span style="font-size:14pt"><a href='https://arxiv.org/abs/2305.19066' target="_blank" rel="noopener noreferrer">[Arxiv]</a></span>
+					<span style="font-size:14pt"><a href='resources/WACV_2024_Nested_Diffusion.pdf' target="_blank" rel="noopener noreferrer">[Paper]</a></span>
+					</span>
+				</td>
+			</tr>
+		</table>
+
+		<!-- bibtex citation -->
+		<p class="section" id="bibtex"><b>Bibtex</b></p>
+		<table border="0">
+		<tbody>
+			<pre class="command-copy" 
+			style=" display: block;
+					background: #eee;
+					white-space: pre;
+					-webkit-overflow-scrolling: touch;
+					max-width: 100%;
+					min-width: 100px;
+					border-radius: 20px;
+					padding: 0;;">
+
+	@article{elata2023nested,
+		title={Nested Diffusion Processes for Anytime Image Generation},
+		author={Elata, Noam and Kawar, Bahjat and Michaeli, Tomer and Elad, Michael},
+		journal={arXiv preprint arXiv:2305.19066},
+		year={2023}
+	}
+			</pre>
+		</tbody>
+		</table>
+		<!-- end bibtex citation -->
+
+		<div class="container">
+			<p class="text-left">
+				Our official code implementation can be found in the official <a href="https://github.com/noamelata/NestedDiffusion" target="_blank" rel="noopener noreferrer">github repository</a>. 
+			</br> Nested Diffusion may be used online on the official <a href="https://huggingface.co/spaces/noamelata/Nested-Diffusion" target="_blank" rel="noopener noreferrer">HuggingFace space</a>.
+			</p>
+		</div>
+
+		<center>
+			<table class="table" width="1" style="max-width: 400px;">
+				<tbody>
+					<tr>
+						<td width="50%" style="text-align: center;">
+							<a href="https://huggingface.co/spaces/noamelata/Nested-Diffusion" target="_blank" rel="noopener noreferrer">
+								<img alt="" id="github_logo" class="round" width="100%" style="max-width:150px" src="./resources/huggingface_logo.png"/>
+							</a>
+						</td>
+						<td width="50%" style="text-align: center;">
+							<a href="https://github.com/noamelata/NestedDiffusion" target="_blank" rel="noopener noreferrer">
+								<img alt="" id="github_logo" class="round" width="100%" style="max-width:150px" src="./resources/github_logo.png"/>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-size:14pt; text-align: center;">
+							<a target="_blank" rel="noopener noreferrer" href='https://huggingface.co/spaces/noamelata/Nested-Diffusion'>[App]</a>
+						</td>
+						<td style="font-size:14pt; text-align: center;">
+							<a target="_blank" rel="noopener noreferrer" href='https://github.com/noamelata/NestedDiffusion'>[Code]</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</center>
+
+		<hr>
+		<br>
+
+		<!-- acknowledgement -->
+		<div class="container">
+			<center><h3>Acknowledgements</h3></center>
+			<p style="font-size: 11pt;">
+				This webpage is based on a <a target="_blank" rel="noopener noreferrer" href="https://github.com/matankleiner/academic-webpage-template/tree/main">template</a> made by <a href="https://www.linkedin.com/in/matan-kleiner/" target="_blank" rel="noopener noreferrer">Matan Kleiner</a> with the 
+				help of <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/hilamanor/">Hila Manor</a>. Features are taken from <a target="_blank" rel="noopener noreferrer" href="https://getbootstrap.com/">bootstrap</a>, and icons are taken from <a target="_blank" rel="noopener noreferrer" href="https://fontawesome.com/">font awesome</a>.
+					</a>
+			</p>
+		</div>
+	<br>
+
+</div>
+
+<script src="functionality.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+
