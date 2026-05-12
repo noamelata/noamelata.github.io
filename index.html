@@ -1,313 +1,414 @@
 <html>
 <head>
 <title>Noam Elata</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="QjLkUt7GRHvXWyLqRw7NZ7MW0-3BEg5TfF4bl-kxZB0" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Remove the line below to disable animations -->
+<link rel="stylesheet" href="animations.css">
+
 <style type="text/css">
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #fafafa;
+    color: #1a1a2e;
+    scroll-behavior: smooth;
+}
+
 .content {
-    width:900px;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
     text-align: left;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 200;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.7;
 }
+
 h1 {
+    font-weight: 600;
+    font-size: 2.2em;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+    color: #1a1a2e;
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #1a1a2e;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 1em;
+    color: #6b7280;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+p {
+    margin-bottom: 16px;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 48px 0 32px;
+}
+
+.subtitle {
+    color: #4b5563;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* Profile image */
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin: 24px 0;
+    border: 3px solid #e5e7eb;
+}
+
+/* Social links */
+.social-links {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: #4b5563;
+    text-decoration: none;
+    font-size: 13px;
     font-weight: 400;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
-.banner {
-    width:900px;
-    padding:0px; margin:0px;
-    position: absolute; top:4px; left:0px;
-    z-index: 0;
+
+.social-links a:hover {
+    color: #7c3aed;
+    border-color: #7c3aed;
+    background: rgba(124, 58, 237, 0.04);
 }
-.banner td {
-    padding:0px; margin:0px;
+
+/* Sections */
+.section {
+    padding: 32px 0;
+    border-top: 1px solid #e5e7eb;
 }
-.banner_img {
-    width:132px; height: 132px;
-    margin-right:9px;
-    margin-left:9px;
+
+/* Links */
+a.lnk {
+    color: #4338ca;
+    text-decoration: none;
 }
-.overlay {
-    position: absolute; top:0px; left:0px;
-    z-index: 1;
-    text-align:center;
-    width: 900px;
+
+a.lnk:hover {
+    color: #7c3aed;
 }
-.grad-l {
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 255));
-    display:inline-block;
-    height:140px;
-    width:70px;
+
+/* Publication cards */
+.pub-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
 }
-.grad-r {
-    background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 255));
-    display:inline-block;
-    height:140px;
-    width:70px;
+
+.pub-card img {
+    width: 88px;
+    height: 88px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
 }
-#vector-table {
-    text-align:center;
-    margin-left:5px;
-    margin-right:5px;
-    width:21px;
-    transition: width 2s;
+
+.pub-card .pub-info {
+    font-size: 14px;
+    line-height: 1.6;
 }
-#vector-table tr, #vector-table td, #vector-table tbody {
-    width:100%;
+
+.pub-card .pub-info b {
+    font-weight: 500;
 }
-#vector-table td, .vt-like td {
-    border: 1px solid gray;
-    border-bottom: none;
+
+.pub-card .pub-venue {
+    font-weight: 500;
 }
-#vector-table tr:last-child > td, .vt-like tr:last-child > td {
-    border: 1px solid gray;
-    border-bottom: 1px solid gray !important;
+
+.pub-card .pub-links a {
+    font-size: 13px;
+    font-weight: 400;
+    color: #4338ca;
+    text-decoration: none;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid #e5e7eb;
+    margin-right: 4px;
 }
-.menu-item {
-    padding-left: 10px;
-    padding-right: 10px;
-    display:none;
+
+.pub-card .pub-links a:hover {
+    border-color: #7c3aed;
+    background: rgba(124, 58, 237, 0.04);
 }
-.menu-item a {
-    color:black;
-    text-decoration:none;
+
+/* Awards & lists */
+ul {
+    padding-left: 20px;
 }
-.menu-item a:hover {
-    text-decoration:underline;
+
+li {
+    margin-bottom: 6px;
 }
-.encdec {
-    background-color:white;
-    display:inline-block;
+
+/* Collaborators multi-column */
+.collab-list {
+    columns: 2;
+    column-gap: 40px;
+    padding-left: 20px;
 }
-td.red {
-    background:rgb(255,0,0);
+
+.collab-list li {
+    break-inside: avoid;
 }
-td.blue {
-    background:rgb(40,40,255);
-}
-td.green {
-    background:rgb(0,150,0);
-}
-td.orange {
-     background:rgb(255,165,0);
-}
-td.red:hover {
-    background:rgb(255,50,50);
-}
-td.blue:hover {
-    background:rgb(50,50,255);
-}
-td.green:hover {
-    background:rgb(50,150,50);
-}
-td.orange:hover {
-     background:rgb(255,205,40);
-}
-.lnk:link, .lnk:visited {
-    color:black;
-}
-.lnk:hover {
-    color:gray;
-}
-.article {
-    height: 100px;
-}
-.article * {
-    font-weight: 200;
-}
-.article b {
-    font-weight: 400 !important;
-}
-.article-img {
-    width:100px;
-    height:100px;
-    vertical-align:middle;
-}
-@media only screen and (max-width: 900px) {
-    #banner-div { display:none !important; }
-    #small-div { display:block !important; }
-    .content { width:100% !important; }
-    .article { margin-bottom:80px; }
+
+/* Responsive */
+@media only screen and (max-width: 640px) {
+    .hero { padding: 24px 0 16px; }
+    .profile-img { width: 140px; height: 140px; }
+    .pub-card { flex-direction: column; align-items: center; text-align: center; }
+    .pub-card img { width: 140px; height: 140px; }
+    .collab-list { columns: 1; }
+    h1 { font-size: 1.8em; }
 }
 </style>
-<script type="text/javascript">
-var shown = false;
-function toggle_text() {
-    var items = document.getElementsByClassName("menu-item");
-    for (var i =0; i < items.length; i++) {
-        if (shown) {
-            items[i].style.display = "none";
-        }
-        else {
-            items[i].style.display = "inline";
-        }
-    }
-    shown = !shown;
-}
-function toggle_menu() {
-    if (shown) {
-        document.getElementById("vector-table").style.width="21px";
-        setTimeout(toggle_text, 100);
-    }
-    else {
-        document.getElementById("vector-table").style.width="161px";
-        setTimeout(toggle_text, 1000);
-    }
-}
-function show_menu() {
-    if(!shown) {
-        document.getElementById("vector-table").style.width="161px";
-        setTimeout(toggle_text, 1000);
-    }
-}
-</script>
 </head>
-<body dir="ltr">
-<center><div class="content">
-    <center>
+<body>
+<div class="content">
+
+    <div class="hero">
+        <img src="profile/Noam.jpg" class="profile-img" alt="Noam Elata" />
         <h1>Noam Elata</h1>
-        Ph.D. Candidate at Technion - Israel Institute of Technology.<br />
-        Generative AI Researcher at Apple<br />
-        Interested in generative models, computer vision and deep learning. <br />
-        <a class="lnk" href="https://www.linkedin.com/in/noamelata">LinkedIn</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a class="lnk" href="https://github.com/noamelata">GitHub</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a class="lnk" href="https://twitter.com/noamelata">Twitter</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a class="lnk" href="https://scholar.google.com/citations?user=88l-2DcAAAAJ">Google Scholar</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a class="lnk" href="https://www.semanticscholar.org/author/Noam-Elata/2218362804">Semantic Scholar</a>
-    </center>
-    <br /><br />
-    <div style="position:relative;height:180px;" id="banner-div">
-        <center><img src="profile/Noam.jpg" style="width:200px;height:200px;" /></center>
+        <div class="subtitle">
+            Ph.D. Graduate at Technion &mdash; Israel Institute of Technology<br />
+            Generative AI Researcher at Apple<br />
+            Generative models, computer vision, and deep learning
+        </div>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/noamelata">LinkedIn</a>
+            <a href="https://github.com/noamelata">GitHub</a>
+            <a href="https://twitter.com/noamelata">Twitter</a>
+            <a href="https://scholar.google.com/citations?user=88l-2DcAAAAJ">Google Scholar</a>
+            <a href="https://www.semanticscholar.org/author/Noam-Elata/2218362804">Semantic Scholar</a>
+        </div>
     </div>
 
-    <br /><br />
-    <div id="about" style="border-top:1px solid gray;">
-    <h2>About Me</h2>
-    <p>
-	I am a Ph.D. candidate in the Electrical and Computer Engineering faculty at the <a class="lnk" href="https://www.technion.ac.il/">Technion</a>, researching computer vision and machine learning under the supervision of <a class="lnk" href="https://elad.cs.technion.ac.il/">Prof. Michael Elad</a> and <a class="lnk" href="https://tomer.net.technion.ac.il/">Prof. Tomer Michaeli</a>. I am interested in generative models and theoretical deep learning, focusing most of my recent work on diffusion models. As of summer 2024, I am also a GenAI researcher at <a class="lnk" href="https://www.apple.com/">Apple</a> in Herzeliya.
-    </p><p>
-    Prior to my Ph.D. studies, I received my B.Sc., summa cum laude, in computer engineering from Technion. During my studies, I have worked as a computer vision engineer at <a class="lnk" href="https://www.mobileye.com/">Mobileye</a>.
-    </p>
+    <div class="section" id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a Ph.D. graduate of the Electrical and Computer Engineering faculty at the <a class="lnk" href="https://www.technion.ac.il/">Technion</a>, researching computer vision and machine learning under the supervision of <a class="lnk" href="https://elad.cs.technion.ac.il/">Prof. Michael Elad</a> and <a class="lnk" href="https://tomer.net.technion.ac.il/">Prof. Tomer Michaeli</a>. I am interested in generative models and theoretical deep learning, focusing most of my recent work on diffusion models. I am also interested in neural architectures, attention sparsity, and long video generation. As of summer 2024, I am also a GenAI researcher at <a class="lnk" href="https://www.apple.com/">Apple</a> in Herzeliya.
+        </p>
+        <p>
+            Prior to my Ph.D. studies, I received my B.Sc., summa cum laude, in computer engineering from Technion. During my studies, I have worked as a computer vision engineer at <a class="lnk" href="https://www.mobileye.com/">Mobileye</a>.
+        </p>
     </div>
-    <br />
-    <div id="pub" style="border-top:1px solid gray;">
-    <h2>Publications</h2>
-    <h3>2026</h3>
-    <div class="article"><table><tr>
-    <td valign="middle"><img src="figures/CalibAtt.png" class="article-img" /></td>
-    <td valign="middle">Shai Yehezkel, Shahar Yadin, <b>Noam Elata</b>, Yaron Ostrovsky-Berman, Bahjat Kawar<br />
-    <a class="lnk" href="https://arxiv.org/abs/2603.05503">Accelerating Text-to-Video Generation with Calibrated Sparse Attention</a><br />
-    <b>Preprint 2026</b><br />
-    </tr></table></div> <br />
-    <h3>2025</h3>
-    <div class="article"><table><tr>
-        <td valign="middle"><img src="figures/BSFA.png" class="article-img" /></td>
-        <td valign="middle">Daniel Ohayon, Itay Lamprecht, Itay Hubara, Israel Cohen, Daniel Soudry, <b>Noam Elata</b><br />
-        <a class="lnk" href="https://arxiv.org/abs/2512.07011">Block Sparse Flash Attention</a><br />
-        <b>Preprint 2025</b><br />
-        <b>[</b><a class="lnk" href="https://github.com/Danielohayon/Block-Sparse-Flash-Attention">code</a><b>]</b></td>
-    </tr></table></div> <br />
-    <div class="article"><table><tr>
-        <td valign="middle"><img src="figures/InvFusion.png" class="article-img" /></td>
-        <td valign="middle"><b>Noam Elata</b>*, Hyungjin Chung*, Jong Chul Ye, Tomer Michaeli, Michael Elad<br />
-        <a class="lnk" href="https://arxiv.org/abs/2504.01689">InvFusion: Bridging Supervised and Zero-shot Diffusion for Inverse Problems</a><br />
-        <b>NeurIPS 2025</b>, in <i>The 39th Conference on Neural Information Processing Systems</i>.<br />
-        <b>[</b><a class="lnk" href="https://github.com/noamelata/InvFusion">code</a><b>]</b></td>
-    </tr></table></div> <br />
-    <div class="article"><table><tr>
-        <td valign="middle"><img src="figures/VIVID-icon.png" class="article-img" /></td>
-        <td valign="middle"><b>Noam Elata</b>, Bahjat Kawar, Yaron Ostrovsky-Berman, Miriam Farber, Ron Sokolovsky<br />
-        <a class="lnk" href="https://arxiv.org/abs/2411.07765">Novel View Synthesis with Pixel-Space Diffusion Models</a><br />
-        <b>CVPR 2025</b>, in <i>The IEEE/CVF Conference on Computer Vision and Pattern Recognition</i>.<br />
-        <b>[</b><a class="lnk" href="https://github.com/apple/ml-vivid">code</a><b>]</b></td>
-    </tr></table></div> <br />
-    <div class="article"><table><tr>
-        <td valign="middle"><img src="figures/compression-icon.png" class="article-img" /></td>
-        <td valign="middle"><b>Noam Elata</b>, Tomer Michaeli, Michael Elad<br />
-        <a class="lnk" href="https://arxiv.org/abs/2407.09896">PSC: Posterior Sampling-Based Compression</a><br />
-        <b>TMLR 2025</b>, in <i>Transactions on Machine Learning Research</i>.<br />
-        <b>[</b><a class="lnk" href="https://github.com/noamelata/PSC">code</a><b>]</b></td>
-    </tr></table></div> <br />
-    <h3>2024</h3>
-    <div class="article"><table><tr>
-        <td valign="middle"><img src="figures/CDM.png" class="article-img" /></td>
-        <td valign="middle">Shahar Yadin, <b>Noam Elata</b>, Tomer Michaeli<br />
-        <a class="lnk" href="https://arxiv.org/abs/2402.10095">Classification Diffusion Models: Revitalizing Density Ratio Estimation</a><br />
-        <b>NeurIPS 2024</b>, in <i>The 38th Conference on Neural Information Processing Systems</i>.<br />
-        <b>[</b><a class="lnk" href="https://shaharyadin.github.io/CDM/">webpage</a><b>][</b><a class="lnk" href="https://github.com/shaharYadin/CDM">code</a><b>]</b></td>
-    </tr></table></div> <br />
-    <div class="article"><table><tr>
-        <td valign="middle"><img src="figures/AdaSense-Diagram.png" class="article-img" /></td>
-        <td valign="middle"><b>Noam Elata</b>, Tomer Michaeli, Michael Elad<br />
-        <a class="lnk" href="https://arxiv.org/abs/2407.08256">Adaptive Compressed Sensing with Diffusion-Based Posterior Sampling</a><br />
-        <b>ECCV 2024</b>, in <i>The 18th European Conference on Computer Vision</i>.<br />
-        <b> &star; Rothschild Academic Excellence Award</b><br />
-        <b>[</b><a class="lnk" href="https://github.com/noamelata/AdaSense">code</a><b>]</b></td>
-    </tr></table></div> <br />
-    <div class="article"><table><tr>
-        <td valign="middle"><img src="figures/gsure.png" class="article-img" /></td>
-        <td valign="middle">Bahjat Kawar*, <b>Noam Elata</b>*, Tomer Michaeli, Michael Elad<br />
-        <a class="lnk" href="https://arxiv.org/abs/2305.13128">GSURE-Based Diffusion Model Training with Corrupted Data</a><br />
-        <b>TMLR 2024</b>, in <i>Transactions on Machine Learning Research</i>.<br />
-        <b>[</b><a class="lnk" href="https://github.com/bahjat-kawar/gsure-diffusion">code</a><b>]</b></td>
-    </tr></table></div> <br />
-	    <div class="article"><table><tr>
-        <td valign="middle"><img src="figures/nested.png" class="article-img" /></td>
-        <td valign="middle"><b>Noam Elata</b>, Bahjat Kawar, Tomer Michaeli, Michael Elad<br />
-        <a class="lnk" href="https://arxiv.org/abs/2305.19066">Nested Diffusion Processes for Anytime Image Generation</a><br />
-        <b>WACV 2024</b>, in <i>The IEEE/CVF Winter Conference on Applications of Computer Vision</i>.<br />
-        <b>[</b><a class="lnk" href="https://noamelata.github.io/NestedDiffusion">webpage</a><b>]</b>
-        <b>[</b><a class="lnk" href="https://github.com/noamelata/NestedDiffusion">code</a><b>]</b>
-        <b>[</b><a class="lnk" href="https://huggingface.co/spaces/noamelata/Nested-Diffusion">space</a><b>]</b></td>
-    </tr></table></div> <br />    
-    <br />
-    <div id="awards" style="border-top:1px solid gray;">
-    <h2>Awards</h2>
-    I am a recipient of the following awards:
-    <ul>
-        <li>NeurIPS Top Reviewer, 2025</li>
-        <li>Rothschild Academic Excellence Award, 2024</li>
-        <li>Meyer Fellows prize 2022</li>
-        <li>EMET Excellence Program 2020-2022</li>
-        <li>Alfred and Anna Grey Excellence Scholarship 2021</li>
-        <li>Apple Excellence Award 2021</li>
-        <li>Technion Alumni Scholarship 2020</li>
-    </ul>
+
+    <div class="section" id="pub">
+        <h2>Publications</h2>
+
+        <h3>2026</h3>
+        <div class="pub-card">
+            <img src="figures/CalibAtt.png" alt="CalibAtt" />
+            <div class="pub-info">
+                Shai Yehezkel, Shahar Yadin, <b>Noam Elata</b>, Yaron Ostrovsky-Berman, Bahjat Kawar<br />
+                <a class="lnk" href="https://arxiv.org/abs/2603.05503">Accelerating Text-to-Video Generation with Calibrated Sparse Attention</a><br />
+                <span class="pub-venue">Preprint 2026</span>
+            </div>
+        </div>
+
+        <h3>2025</h3>
+        <div class="pub-card">
+            <img src="figures/BSFA.png" alt="BSFA" />
+            <div class="pub-info">
+                Daniel Ohayon, Itay Lamprecht, Itay Hubara, Israel Cohen, Daniel Soudry, <b>Noam Elata</b><br />
+                <a class="lnk" href="https://arxiv.org/abs/2512.07011">Block Sparse Flash Attention</a><br />
+                <span class="pub-venue">Preprint 2025</span><br />
+                <span class="pub-links"><a href="https://github.com/Danielohayon/Block-Sparse-Flash-Attention">code</a></span>
+            </div>
+        </div>
+
+        <div class="pub-card">
+            <img src="figures/InvFusion.png" alt="InvFusion" />
+            <div class="pub-info">
+                <b>Noam Elata</b>*, Hyungjin Chung*, Jong Chul Ye, Tomer Michaeli, Michael Elad<br />
+                <a class="lnk" href="https://arxiv.org/abs/2504.01689">InvFusion: Bridging Supervised and Zero-shot Diffusion for Inverse Problems</a><br />
+                <span class="pub-venue">NeurIPS 2025</span> &mdash; The 39th Conference on Neural Information Processing Systems<br />
+                <span class="pub-links"><a href="https://github.com/noamelata/InvFusion">code</a></span>
+            </div>
+        </div>
+
+        <div class="pub-card">
+            <img src="figures/VIVID-icon.png" alt="VIVID" />
+            <div class="pub-info">
+                <b>Noam Elata</b>, Bahjat Kawar, Yaron Ostrovsky-Berman, Miriam Farber, Ron Sokolovsky<br />
+                <a class="lnk" href="https://arxiv.org/abs/2411.07765">Novel View Synthesis with Pixel-Space Diffusion Models</a><br />
+                <span class="pub-venue">CVPR 2025</span> &mdash; The IEEE/CVF Conference on Computer Vision and Pattern Recognition<br />
+                <span class="pub-links"><a href="https://github.com/apple/ml-vivid">code</a></span>
+            </div>
+        </div>
+
+        <div class="pub-card">
+            <img src="figures/compression-icon.png" alt="PSC" />
+            <div class="pub-info">
+                <b>Noam Elata</b>, Tomer Michaeli, Michael Elad<br />
+                <a class="lnk" href="https://arxiv.org/abs/2407.09896">PSC: Posterior Sampling-Based Compression</a><br />
+                <span class="pub-venue">TMLR 2025</span> &mdash; Transactions on Machine Learning Research<br />
+                <span class="pub-links"><a href="https://github.com/noamelata/PSC">code</a></span>
+            </div>
+        </div>
+
+        <h3>2024</h3>
+        <div class="pub-card">
+            <img src="figures/CDM.png" alt="CDM" />
+            <div class="pub-info">
+                Shahar Yadin, <b>Noam Elata</b>, Tomer Michaeli<br />
+                <a class="lnk" href="https://arxiv.org/abs/2402.10095">Classification Diffusion Models: Revitalizing Density Ratio Estimation</a><br />
+                <span class="pub-venue">NeurIPS 2024</span> &mdash; The 38th Conference on Neural Information Processing Systems<br />
+                <span class="pub-links"><a href="https://shaharyadin.github.io/CDM/">webpage</a><a href="https://github.com/shaharYadin/CDM">code</a></span>
+            </div>
+        </div>
+
+        <div class="pub-card">
+            <img src="figures/AdaSense-Diagram.png" alt="AdaSense" />
+            <div class="pub-info">
+                <b>Noam Elata</b>, Tomer Michaeli, Michael Elad<br />
+                <a class="lnk" href="https://arxiv.org/abs/2407.08256">Adaptive Compressed Sensing with Diffusion-Based Posterior Sampling</a><br />
+                <span class="pub-venue">ECCV 2024</span> &mdash; The 18th European Conference on Computer Vision<br />
+                <b>&star; Rothschild Academic Excellence Award</b><br />
+                <span class="pub-links"><a href="https://github.com/noamelata/AdaSense">code</a></span>
+            </div>
+        </div>
+
+        <div class="pub-card">
+            <img src="figures/gsure.png" alt="GSURE" />
+            <div class="pub-info">
+                Bahjat Kawar*, <b>Noam Elata</b>*, Tomer Michaeli, Michael Elad<br />
+                <a class="lnk" href="https://arxiv.org/abs/2305.13128">GSURE-Based Diffusion Model Training with Corrupted Data</a><br />
+                <span class="pub-venue">TMLR 2024</span> &mdash; Transactions on Machine Learning Research<br />
+                <span class="pub-links"><a href="https://github.com/bahjat-kawar/gsure-diffusion">code</a></span>
+            </div>
+        </div>
+
+        <div class="pub-card">
+            <img src="figures/nested.png" alt="Nested Diffusion" />
+            <div class="pub-info">
+                <b>Noam Elata</b>, Bahjat Kawar, Tomer Michaeli, Michael Elad<br />
+                <a class="lnk" href="https://arxiv.org/abs/2305.19066">Nested Diffusion Processes for Anytime Image Generation</a><br />
+                <span class="pub-venue">WACV 2024</span> &mdash; The IEEE/CVF Winter Conference on Applications of Computer Vision<br />
+                <span class="pub-links"><a href="https://noamelata.github.io/NestedDiffusion">webpage</a><a href="https://github.com/noamelata/NestedDiffusion">code</a><a href="https://huggingface.co/spaces/noamelata/Nested-Diffusion">space</a></span>
+            </div>
+        </div>
     </div>
-    <br />
-    <div id="teach" style="border-top:1px solid gray;">
-    <h2>Teaching & Program Committee</h2>
-    I have taught the following courses as a TA:
-    <ul>
-        <li>Generative AI - Diffusion Models (CS236610, CS236759) &ndash; Winter 2023-2024 (<a class="lnk" href=https://www.youtube.com/playlist?list=PL0H3pMD88m8XPBlWoWGyal45MtnwKLSkQ>recorded lectures</a>), Spring 2025 </li>
-        <li>Deep Learning (ECE046211) &ndash; Spring 2023 (<a class="lnk" href=https://taldatech.github.io/ee046211-deep-learning/>projects GitHub</a>)</li>
-    </ul>
-    I have served as a reviewer at the following venues:
-    <ul>
-        <li>NeuRIPS 2025 (Top Reviewer)</li>
-        <li>ICML 2025</li>
-        <li>CVPR 2025</li>
-        <li>ICLR 2025</li>
-        <li>ECCV 2024</li>
-    </ul>
+
+    <div class="section" id="awards">
+        <h2>Awards</h2>
+        <ul>
+            <li>NeurIPS Top Reviewer, 2025</li>
+            <li>Rothschild Academic Excellence Award, 2024</li>
+            <li>Meyer Fellows Prize, 2022</li>
+            <li>EMET Excellence Program, 2020&ndash;2022</li>
+            <li>Alfred and Anna Grey Excellence Scholarship, 2021</li>
+            <li>Apple Excellence Award, 2021</li>
+            <li>Technion Alumni Scholarship, 2020</li>
+        </ul>
     </div>
-    <br />
-    <div id="colab" style="border-top:1px solid gray;">
-    <h2>Collaborators</h2>
-    I have had the pleasure to work with:
-    <ul>
-        <li><a class="lnk" style="text-decoration:none" href=https://bahjat-kawar.github.io/>Bahjat Kawar</a></li>
-        <li>Shahar Yadin</li>
-        <li><a class="lnk" style="text-decoration:none" href=https://www.hj-chung.com/>Hyungjin Chung</a></li>
-        <li><a class="lnk" style="text-decoration:none" href=https://royg27.github.io/>Roy Ganz</a></li>
-        <li>Yaniv Blumenfeld</li>
-        <li><a class="lnk" style="text-decoration:none" href=https://hilamanor.github.io/>Hila Manor</a></li>
-        <li>Sean Man</li>
-        <li>Ron Raphaeli</li>
-        <li>Itay Lamprecht</li>
-        <li>Daniel Ohayon</li>
-        <li>Ido Blayberg</li>
-        <li>Ohad Amsalem</li>
-    </ul>
+
+    <div class="section" id="teach">
+        <h2>Teaching &amp; Program Committee</h2>
+        <p>I have taught the following courses as a TA:</p>
+        <ul>
+            <li>Generative AI &mdash; Diffusion Models (CS236610, CS236759) &ndash; Winter 2023&ndash;2024 (<a class="lnk" href="https://www.youtube.com/playlist?list=PL0H3pMD88m8XPBlWoWGyal45MtnwKLSkQ">recorded lectures</a>), Spring 2025</li>
+            <li>Deep Learning (ECE046211) &ndash; Spring 2023 (<a class="lnk" href="https://taldatech.github.io/ee046211-deep-learning/">projects GitHub</a>)</li>
+        </ul>
+        <p>I have served as a reviewer at the following venues:</p>
+        <ul class="collab-list">
+            <li>ECCV 2026</li>
+            <li>CVPR 2026</li>
+            <li>ICML 2026</li>
+            <li>NeurIPS 2025 (Top Reviewer)</li>
+            <li>ICML 2025</li>
+            <li>CVPR 2025</li>
+            <li>ICLR 2025</li>
+            <li>ECCV 2024</li>
+        </ul>
     </div>
-</div></center>
+
+    <div class="section" id="colab">
+        <h2>Collaborators</h2>
+        <p>I have had the pleasure to work with:</p>
+        <ul class="collab-list">
+            <li><a class="lnk" href="https://bahjat-kawar.github.io/">Bahjat Kawar</a></li>
+            <li>Shahar Yadin</li>
+            <li><a class="lnk" href="https://www.hj-chung.com/">Hyungjin Chung</a></li>
+            <li><a class="lnk" href="https://bispl.kaist.ac.kr/">Jong Chul Ye</a></li>
+            <li><a class="lnk" href="https://soudry.github.io/">Daniel Soudry</a></li>
+            <li><a class="lnk" href="https://webee.technion.ac.il/people/israelc/">Israel Cohen</a></li>
+            <li><a class="lnk" href="https://royg27.github.io/">Roy Ganz</a></li>
+            <li><a class="lnk" href="https://hilamanor.github.io/">Hila Manor</a></li>
+            <li>Yaniv Blumenfeld</li>
+            <li>Sean Man</li>
+            <li>Ron Raphaeli</li>
+            <li>Itay Lamprecht</li>
+            <li>Daniel Ohayon</li>
+            <li>Itay Hubara</li>
+            <li>Ido Blayberg</li>
+            <li>Ohad Amsalem</li>
+            <li>Shai Yehezkel</li>
+            <li>Yaron Ostrovsky-Berman</li>
+            <li>Miriam Farber</li>
+            <li>Ron Sokolovsky</li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+// Scroll-triggered fade-in for sections (only active if animations.css is loaded)
+document.addEventListener('DOMContentLoaded', function() {
+    var sections = document.querySelectorAll('.section');
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    sections.forEach(function(s) { observer.observe(s); });
+});
+</script>
 </body>
 </html>
